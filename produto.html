@@ -1,46 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Produto — Gênio Sports</title>
+<title>Produto - Gênio Sports</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-  <div class="logo">Gênio Sports</div>
-  <button onclick="voltarProduto()">← Voltar</button>
-  <button onclick="abrirCarrinho()">🛒 Carrinho</button>
+<div class="logo">Gênio Sports</div>
+<button onclick="voltar()">← Voltar</button>
+<button onclick="abrirCarrinho()">🛒 Carrinho</button>
 </header>
 
-<section class="produto-detalhe">
-
-  <div class="produto-img">
-    <img id="imgProduto" src="">
-  </div>
-
-  <div class="produto-info">
-
-    <h1 id="nomeProduto"></h1>
-    <p class="preco">A partir de <b>R$160</b></p>
-
-    <button onclick="adicionarProduto()">Adicionar ao Carrinho</button>
-    <button onclick="comprarProduto()">Comprar no WhatsApp</button>
-
-  </div>
-
+<section class="produto-unico">
+  <div id="produto"></div>
 </section>
 
 <div id="carrinho" class="carrinho">
-
-  <h2>Carrinho</h2>
-  <ul id="listaCarrinho"></ul>
-  <button onclick="comprarCarrinho()">Comprar no WhatsApp</button>
-  <button onclick="fecharCarrinho()">Fechar</button>
-
+<h2>Carrinho</h2>
+<ul id="listaCarrinho"></ul>
+<button onclick="comprarCarrinho()">Comprar no WhatsApp</button>
+<button onclick="fecharCarrinho()">Fechar</button>
 </div>
 
 <script src="script.js"></script>

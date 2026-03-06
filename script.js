@@ -138,7 +138,8 @@ div.className="camisa"
 
 div.innerHTML=`
 
-<img src="${camisa.img}" onclick="verProdutoDetalhes('${camisa.nome}','${camisa.img}')">
+<img src="${camisa.img}" alt="${camisa.nome}" style="cursor:pointer;"
+onclick="abrirProduto('${camisa.nome}','${camisa.img}')">
 
 <h3>${camisa.nome}</h3>
 
@@ -225,4 +226,27 @@ if(document.getElementById("nomeProduto")){
   document.getElementById("nomeProduto").innerText = nome
   document.getElementById("imgProduto").src = img
 
+}
+
+function abrirProduto(camisaNome, imgUrl){
+  let url = `produto.html?nome=${encodeURIComponent(camisaNome)}&img=${encodeURIComponent(imgUrl)}`;
+  window.location.href = url;
+}
+
+if(document.getElementById("produto")){
+  const urlParams = new URLSearchParams(window.location.search);
+  const nome = urlParams.get("nome");
+  const img = urlParams.get("img");
+
+  const container = document.getElementById("produto");
+  container.innerHTML = `
+    <div class="camisa" style="max-width:400px;margin:auto;">
+      <img src="${img}" alt="${nome}" style="width:100%;height:auto;">
+      <h2>${nome}</h2>
+      <p>Camisa tailandesa</p>
+      <p><b>A partir de R$160</b></p>
+      <button onclick="adicionarCarrinho('${nome}')">Adicionar ao carrinho</button>
+      <button onclick="enviarWhats('${nome}')">Comprar no WhatsApp</button>
+    </div>
+  `;
 }

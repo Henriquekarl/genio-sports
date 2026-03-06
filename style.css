@@ -148,29 +148,3 @@ button{
     right: 5%;
   }
 }
-
-.produto-detalhe{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:30px;
-  padding:40px;
-}
-
-.produto-img img{
-  width:300px;
-  height:auto;
-  object-fit:contain;
-  border:2px solid gold;
-  border-radius:8px;
-}
-
-.produto-info{
-  max-width:500px;
-}
-
-.produto-info h1{
-  font-size:28px;
-  color:gold;
-  margin-bottom:10px;
-}
