@@ -138,7 +138,7 @@ div.className="camisa"
 
 div.innerHTML=`
 
-<img src="${camisa.img}">
+<img src="${camisa.img}" onclick="verProdutoDetalhes('${camisa.nome}','${camisa.img}')">
 
 <h3>${camisa.nome}</h3>
 
@@ -193,3 +193,36 @@ time.style.display="none"
 }
 
 atualizarCarrinho()
+
+function verProdutoDetalhes(nome, img){
+  localStorage.setItem("produtoDetalheNome", nome)
+  localStorage.setItem("produtoDetalheImg", img)
+  window.location.href = "produto.html"
+}
+
+function voltarProduto(){
+  window.history.back()
+}
+
+function adicionarProduto(){
+  let nome = localStorage.getItem("produtoDetalheNome")
+  adicionarCarrinho(nome)
+  alert("Produto adicionado ao carrinho!")
+}
+
+function comprarProduto(){
+  let nome = localStorage.getItem("produtoDetalheNome")
+  let msg = `Olá! Tenho interesse na camisa ${nome}`
+  let url = `https://wa.me/${numeroVendedor}?text=${encodeURIComponent(msg)}`
+  window.open(url)
+}
+
+if(document.getElementById("nomeProduto")){
+
+  let nome = localStorage.getItem("produtoDetalheNome")
+  let img = localStorage.getItem("produtoDetalheImg")
+
+  document.getElementById("nomeProduto").innerText = nome
+  document.getElementById("imgProduto").src = img
+
+}
