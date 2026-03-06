@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<title>Gênio Sports</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">Gênio Sports</div>
+
+<input type="text" id="pesquisa" placeholder="Pesquisar time...">
+
+<button onclick="abrirCarrinho()">🛒 Carrinho</button>
+
+</header>
+
+<section class="aviso">
+Camisas tailandesas <b>a partir de R$160</b>
+</section>
+
+<section class="times">
+
+<h2>Times do Brasil</h2>
+
+<div class="grid">
+
+<div class="card" onclick="abrirTime('Flamengo')">Flamengo</div>
+<div class="card" onclick="abrirTime('Corinthians')">Corinthians</div>
+<div class="card" onclick="abrirTime('Palmeiras')">Palmeiras</div>
+<div class="card" onclick="abrirTime('São Paulo')">São Paulo</div>
+<div class="card" onclick="abrirTime('Santos')">Santos</div>
+<div class="card" onclick="abrirTime('Grêmio')">Grêmio</div>
+<div class="card" onclick="abrirTime('Internacional')">Internacional</div>
+<div class="card" onclick="abrirTime('Cruzeiro')">Cruzeiro</div>
+<div class="card" onclick="abrirTime('Atlético Mineiro')">Atlético Mineiro</div>
+<div class="card" onclick="abrirTime('Botafogo')">Botafogo</div>
+
+</div>
+
+<h2>Europa</h2>
+
+<div class="grid">
+
+<div class="card" onclick="abrirTime('Real Madrid')">Real Madrid</div>
+<div class="card" onclick="abrirTime('Barcelona')">Barcelona</div>
+<div class="card" onclick="abrirTime('Manchester City')">Manchester City</div>
+<div class="card" onclick="abrirTime('Manchester United')">Manchester United</div>
+<div class="card" onclick="abrirTime('Liverpool')">Liverpool</div>
+<div class="card" onclick="abrirTime('Arsenal')">Arsenal</div>
+<div class="card" onclick="abrirTime('Chelsea')">Chelsea</div>
+<div class="card" onclick="abrirTime('PSG')">PSG</div>
+<div class="card" onclick="abrirTime('Bayern')">Bayern</div>
+<div class="card" onclick="abrirTime('Juventus')">Juventus</div>
+
+</div>
+
+<h2>Seleções</h2>
+
+<div class="grid">
+
+<div class="card" onclick="abrirTime('Brasil')">Brasil</div>
+<div class="card" onclick="abrirTime('Argentina')">Argentina</div>
+<div class="card" onclick="abrirTime('Portugal')">Portugal</div>
+<div class="card" onclick="abrirTime('França')">França</div>
+<div class="card" onclick="abrirTime('Alemanha')">Alemanha</div>
+<div class="card" onclick="abrirTime('Espanha')">Espanha</div>
+
+</div>
+
+</section>
+
+<div id="carrinho" class="carrinho">
+
+<h2>Carrinho</h2>
+
+<ul id="listaCarrinho"></ul>
+
+<button onclick="comprarCarrinho()">Comprar no WhatsApp</button>
+
+<button onclick="fecharCarrinho()">Fechar</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
