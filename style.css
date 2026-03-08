@@ -1534,6 +1534,18 @@ input{
   justify-content:center;
 }
 
+
+@keyframes setaMenuMobile{
+  0%, 100%{
+    transform:translateY(-50%) translateX(0);
+    opacity:0.92;
+  }
+  50%{
+    transform:translateY(-50%) translateX(4px);
+    opacity:1;
+  }
+}
+
 @media (max-width: 1024px){
   .produto-info{
     position:static;
@@ -1592,17 +1604,25 @@ input{
   }
 
   .menu::before{
-    content:"Arraste para o lado →";
+    content:"››";
     position:absolute;
-    right:0;
-    bottom:0;
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:0.02em;
-    color:rgba(255, 215, 0, 0.92);
+    right:4px;
+    top:50%;
+    transform:translateY(-50%);
+    width:32px;
+    height:32px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:999px;
+    font-size:20px;
+    font-weight:900;
+    line-height:1;
+    color:#000;
+    background:gold;
+    box-shadow:0 8px 18px rgba(0,0,0,.28);
     pointer-events:none;
-    background:linear-gradient(90deg, rgba(0,0,0,0) 0%, #000 28%, #000 100%);
-    padding:4px 0 0 18px;
+    animation:setaMenuMobile 1.2s ease-in-out infinite;
   }
 
   .menu::-webkit-scrollbar{
