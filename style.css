@@ -1835,3 +1835,135 @@ input{
   text-align:center;
   color:#f3f3f3;
 }
+
+
+/* ===== Ajustes extras de conforto no celular ===== */
+@media (max-width: 768px){
+  html{
+    scroll-padding-top:88px;
+  }
+
+  .aviso{
+    padding:12px 14px;
+    font-size:14px;
+    line-height:1.45;
+  }
+
+  .tag-topo{
+    font-size:12px;
+    padding:7px 12px;
+  }
+
+  .hero-home-cards,
+  .topo-categoria-info,
+  .topo-produto-info{
+    gap:12px;
+  }
+
+  .mini-card-destaque{
+    padding:16px;
+  }
+
+  .times .grid,
+  #outrosProdutos.grid,
+  .categorias-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  #camisas.grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  .card,
+  #outrosProdutos .card,
+  .categoria-box{
+    min-height:72px;
+    padding:16px 12px;
+    font-size:14px;
+  }
+
+  .camisa{
+    padding:14px;
+    border-radius:16px;
+  }
+
+  .camisa img{
+    height:160px;
+    margin-bottom:8px;
+  }
+
+  .camisa h3{
+    margin:4px 0 6px;
+    font-size:16px;
+  }
+
+  .camisa p,
+  .texto-card-produto,
+  .mini-avaliacao,
+  .avaliacao-resumo{
+    font-size:13px;
+  }
+
+  .camisa button,
+  .camisa .btn-link-principal,
+  .camisa .btn-link-secundario{
+    padding:10px 12px;
+    font-size:13px;
+  }
+
+  .secao-catalogo-topo p,
+  .topo-categoria-texto p,
+  .topo-produto-texto p,
+  .hero-home-texto p{
+    line-height:1.5;
+  }
+}
+
+@media (max-width: 520px){
+  .times .grid,
+  #outrosProdutos.grid,
+  .categorias-grid,
+  #camisas.grid{
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+
+  .produto-configuracoes,
+  .produto-acoes,
+  .carrinho-acoes,
+  .modal-entrega-acoes{
+    gap:8px;
+  }
+
+  .card,
+  #outrosProdutos .card,
+  .categoria-box{
+    min-height:68px;
+    padding:14px 10px;
+    font-size:13px;
+    border-radius:14px;
+  }
+
+  .camisa{
+    padding:12px;
+  }
+
+  .camisa img{
+    height:138px;
+  }
+
+  .camisa h3{
+    font-size:15px;
+  }
+
+  .camisa p,
+  .texto-card-produto,
+  .mini-avaliacao,
+  .avaliacao-resumo{
+    font-size:12px;
+  }
+
+  .camisa button{
+    font-size:12px;
+  }
+}
