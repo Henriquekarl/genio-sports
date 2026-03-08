@@ -307,6 +307,7 @@ button:hover{
 
 .categorias-rapidas{
   padding:35px 30px 10px;
+  scroll-margin-top:90px;
 }
 
 .categorias-rapidas h2{
