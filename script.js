@@ -197,6 +197,23 @@ function gerarLinkProduto(nome, img, meta = {}) {
   return url.toString();
 }
 
+function irParaCatalogo(event) {
+  if (event) event.preventDefault();
+
+  const alvo = document.getElementById("categorias");
+  if (!alvo) return;
+
+  const header = document.querySelector("header");
+  const headerAltura = header ? header.offsetHeight : 0;
+  const margemExtra = window.innerWidth <= 768 ? 14 : 20;
+  const posicao = alvo.getBoundingClientRect().top + window.scrollY - headerAltura - margemExtra;
+
+  window.scrollTo({
+    top: Math.max(posicao, 0),
+    behavior: "smooth"
+  });
+}
+
 function abrirTime(time) {
   localStorage.setItem("modoCatalogo", "time");
   localStorage.setItem("timeEscolhido", time);
