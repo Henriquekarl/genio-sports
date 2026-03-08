@@ -1,46 +1,151 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-<meta charset="UTF-8">
-<title>Camisas</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Camisas - Gênio Sports</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
+  <header>
+    <div class="logo" onclick="window.location.href='index.html'" style="cursor:pointer">
+      Gênio Sports
+    </div>
 
-<div class="logo">Gênio Sports</div>
+    <nav class="menu">
+      <a href="index.html#rodape-home" class="link-modelo-header">Não achou o modelo?</a>
+      <a href="index.html">Início</a>
+      <a href="como-comprar.html">Como comprar</a>
+      <a
+        href="https://www.instagram.com/genio_sports?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </a>
+      <button class="btn-carrinho-topo" type="button" onclick="abrirCarrinho()">
+        🛒 Carrinho (<span id="contadorCarrinho">0</span>)
+      </button>
+    </nav>
+  </header>
 
-<button onclick="voltar()">← Voltar</button>
+  <section class="topo-categoria">
+    <div class="topo-categoria-texto">
+      <span class="tag-topo">Catálogo de camisas</span>
+      <h1 id="nomeTime">Camisas</h1>
+      <p>
+        Escolha o modelo, abra a página individual e configure versão, tamanho e extras para ver o preço exato.
+      </p>
+    </div>
 
-<button onclick="abrirCarrinho()">🛒 Carrinho</button>
+    <div class="topo-categoria-info">
+      <div class="mini-card-destaque">
+        <strong>Preço real na página do produto</strong>
+        <span>O valor final depende da versão, do tamanho e das personalizações escolhidas</span>
+      </div>
 
-</header>
+      <div class="mini-card-destaque">
+        <strong>Pedido direto no WhatsApp</strong>
+        <span>Configure a camisa e envie tudo pronto para o vendedor</span>
+      </div>
+    </div>
+  </section>
 
-<section class="aviso">
-Camisas tailandesas <b>a partir de R$160</b>
-</section>
+  <section class="aviso">
+    Escolha sua camisa e <b>configure o preço exato</b> na página do produto
+  </section>
 
-<h1 id="nomeTime"></h1>
+  <section class="faixas-info faixas-camisas">
+    <div class="faixa-item">✅ Escolha o modelo</div>
+    <div class="faixa-item">📏 Selecione tamanho</div>
+    <div class="faixa-item">🎨 Adicione personalização</div>
+    <div class="faixa-item">💬 Finalize pelo WhatsApp</div>
+  </section>
 
-<div id="camisas" class="grid"></div>
+  <section class="secao-catalogo">
+    <div class="secao-catalogo-topo">
+      <div>
+        <h2>Modelos disponíveis</h2>
+        <p>Clique na camisa para abrir a página individual e configurar seu pedido.</p>
+      </div>
+    </div>
 
-<div id="carrinho" class="carrinho">
+    <div id="camisas" class="grid"></div>
+  </section>
 
-<h2>Carrinho</h2>
+  <section class="duvidas-rapidas">
+    <h2>Dúvidas rápidas</h2>
 
-<ul id="listaCarrinho"></ul>
+    <div class="duvidas-grid">
+      <div class="duvida-card">
+        <h3>O preço já está final?</h3>
+        <p>Não. O valor final aparece na página da camisa, conforme versão, tamanho e extras escolhidos.</p>
+      </div>
 
-<button onclick="comprarCarrinho()">Comprar no WhatsApp</button>
+      <div class="duvida-card">
+        <h3>Posso personalizar?</h3>
+        <p>Sim. Você pode adicionar nome e número, patch e patrocinadores, quando quiser.</p>
+      </div>
 
-<button onclick="fecharCarrinho()">Fechar</button>
+      <div class="duvida-card">
+        <h3>Como compro?</h3>
+        <p>Abra a camisa, configure tudo e envie o pedido diretamente no WhatsApp.</p>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <section class="cta-final">
+    <h2>Quer ver preços, tamanhos e extras?</h2>
+    <p>Abra a página da camisa e monte seu pedido do jeito certo.</p>
 
-<script src="script.js"></script>
+    <div class="cta-links">
+      <a href="como-comprar.html" class="btn-link-secundario">
+        Ver como comprar
+      </a>
 
+      <a
+        href="https://wa.me/5511942257565"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-link-principal"
+      >
+        Falar no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <footer class="rodape">
+    <div class="rodape-logo">Gênio Sports</div>
+    <p>Escolha sua camisa, configure seu pedido e finalize direto no WhatsApp.</p>
+  </footer>
+
+  <div id="fundoCarrinho" class="fundo-carrinho" onclick="fecharCarrinho()"></div>
+
+  <aside id="carrinho" class="carrinho">
+    <div class="carrinho-topo">
+      <h2>Carrinho</h2>
+      <button class="btn-fechar-carrinho" type="button" onclick="fecharCarrinho()">✕</button>
+    </div>
+
+    <ul id="listaCarrinho"></ul>
+
+    <div class="carrinho-acoes">
+      <button type="button" onclick="comprarCarrinho()">Comprar no WhatsApp</button>
+      <button class="btn-secundario" type="button" onclick="fecharCarrinho()">Continuar vendo</button>
+    </div>
+  </aside>
+
+  <a
+    class="whatsapp-flutuante"
+    href="https://wa.me/5511942257565"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chamar no WhatsApp"
+  >
+    WhatsApp
+  </a>
+
+  <script src="script.js"></script>
 </body>
 </html>

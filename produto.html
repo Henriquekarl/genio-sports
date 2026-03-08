@@ -1,30 +1,138 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Produto - Gênio Sports</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produto - Gênio Sports</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-<div class="logo">Gênio Sports</div>
-<button onclick="voltar()">← Voltar</button>
-<button onclick="abrirCarrinho()">🛒 Carrinho</button>
-</header>
+  <header>
+    <div class="logo" onclick="window.location.href='index.html'" style="cursor:pointer">
+      Gênio Sports
+    </div>
 
-<section class="produto-unico">
-  <div id="produto"></div>
-</section>
+    <nav class="menu">
+      <a href="index.html">Início</a>
+      <a href="como-comprar.html">Como comprar</a>
+      <a
+        href="https://www.instagram.com/genio_sports?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </a>
+      <button class="btn-carrinho-topo" type="button" onclick="abrirCarrinho()">
+        🛒 Carrinho (<span id="contadorCarrinho">0</span>)
+      </button>
+    </nav>
+  </header>
 
-<div id="carrinho" class="carrinho">
-<h2>Carrinho</h2>
-<ul id="listaCarrinho"></ul>
-<button onclick="comprarCarrinho()">Comprar no WhatsApp</button>
-<button onclick="fecharCarrinho()">Fechar</button>
-</div>
+  <section class="topo-produto">
+    <div class="topo-produto-texto">
+      <span class="tag-topo">Produto selecionado</span>
+      <h1>Configure sua camisa do jeito certo</h1>
+      <p>
+        Escolha versão, tamanho e personalização para ver o preço exato antes de chamar no WhatsApp.
+      </p>
+    </div>
 
-<script src="script.js"></script>
+    <div class="topo-produto-info">
+      <div class="mini-card-destaque">
+        <strong>Preço real</strong>
+        <span>O valor muda conforme versão, tamanho e extras escolhidos</span>
+      </div>
+
+      <div class="mini-card-destaque">
+        <strong>Pedido direto</strong>
+        <span>Você escolhe tudo aqui e envia já pronto no WhatsApp</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="produto-unico">
+    <div id="produto"></div>
+  </section>
+
+  <section class="bloco-info-produto">
+    <div class="info-produto-card">
+      <h2>Informações importantes</h2>
+      <ul>
+        <li>Versão torcedor e jogador têm preços diferentes</li>
+        <li>G3 e G4 podem alterar o valor</li>
+        <li>Nome, número, patch e patrocinadores são cobrados separadamente</li>
+        <li>Parcelado aumenta 10% no valor total</li>
+      </ul>
+    </div>
+
+    <div class="info-produto-card">
+      <h2>Como funciona</h2>
+      <ol>
+        <li>Escolha versão e tamanho</li>
+        <li>Marque os extras que quiser</li>
+        <li>Veja o preço calculado na hora</li>
+        <li>Envie no WhatsApp para confirmar</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <h2>Precisa de ajuda com tamanho ou personalização?</h2>
+    <p>Chame no WhatsApp e fale diretamente com o vendedor.</p>
+
+    <div class="cta-links">
+      <a
+        href="https://wa.me/5511942257565"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-link-principal"
+      >
+        Falar no WhatsApp
+      </a>
+
+      <a
+        href="https://www.instagram.com/genio_sports?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-link-secundario"
+      >
+        Instagram @genio_sports
+      </a>
+    </div>
+  </section>
+
+  <footer class="rodape">
+    <div class="rodape-logo">Gênio Sports</div>
+    <p>Seu pedido é montado no site e finalizado no WhatsApp.</p>
+  </footer>
+
+  <div id="fundoCarrinho" class="fundo-carrinho" onclick="fecharCarrinho()"></div>
+
+  <aside id="carrinho" class="carrinho">
+    <div class="carrinho-topo">
+      <h2>Carrinho</h2>
+      <button class="btn-fechar-carrinho" type="button" onclick="fecharCarrinho()">✕</button>
+    </div>
+
+    <ul id="listaCarrinho"></ul>
+
+    <div class="carrinho-acoes">
+      <button type="button" onclick="comprarCarrinho()">Comprar no WhatsApp</button>
+      <button class="btn-secundario" type="button" onclick="fecharCarrinho()">Continuar vendo</button>
+    </div>
+  </aside>
+
+  <a
+    class="whatsapp-flutuante"
+    href="https://wa.me/5511942257565"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chamar no WhatsApp"
+  >
+    WhatsApp
+  </a>
+
+  <script src="script.js"></script>
 </body>
 </html>
