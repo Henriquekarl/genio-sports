@@ -307,7 +307,6 @@ button:hover{
 
 .categorias-rapidas{
   padding:35px 30px 10px;
-  scroll-margin-top:90px;
 }
 
 .categorias-rapidas h2{
@@ -1534,18 +1533,6 @@ input{
   justify-content:center;
 }
 
-
-@keyframes setaMenuMobile{
-  0%, 100%{
-    transform:translateY(-50%) translateX(0);
-    opacity:0.92;
-  }
-  50%{
-    transform:translateY(-50%) translateX(4px);
-    opacity:1;
-  }
-}
-
 @media (max-width: 1024px){
   .produto-info{
     position:static;
@@ -1591,38 +1578,13 @@ input{
 
   .menu{
     width:100%;
-    position:relative;
     flex-wrap:nowrap;
     overflow-x:auto;
     justify-content:flex-start;
     gap:10px;
-    padding:0 38px 22px 0;
+    padding-bottom:4px;
     scrollbar-width:none;
     -webkit-overflow-scrolling:touch;
-    mask-image:linear-gradient(to right, #000 0%, #000 84%, transparent 100%);
-    -webkit-mask-image:linear-gradient(to right, #000 0%, #000 84%, transparent 100%);
-  }
-
-  .menu::before{
-    content:"››";
-    position:absolute;
-    right:4px;
-    top:50%;
-    transform:translateY(-50%);
-    width:32px;
-    height:32px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:999px;
-    font-size:20px;
-    font-weight:900;
-    line-height:1;
-    color:#000;
-    background:gold;
-    box-shadow:0 8px 18px rgba(0,0,0,.28);
-    pointer-events:none;
-    animation:setaMenuMobile 1.2s ease-in-out infinite;
   }
 
   .menu::-webkit-scrollbar{
@@ -1640,6 +1602,23 @@ input{
 
   .menu-link-destaque{
     width:auto;
+  }
+
+  .menu a:nth-of-type(3){
+    position:relative;
+    margin-right:18px;
+  }
+
+  .menu a:nth-of-type(3)::after{
+    content:"→";
+    position:absolute;
+    right:8px;
+    top:calc(100% + 8px);
+    font-size:18px;
+    font-weight:700;
+    color:rgba(255, 215, 0, 0.95);
+    pointer-events:none;
+    animation:setaMenuMobile 1.2s ease-in-out infinite;
   }
 
   .hero-home,
@@ -1822,186 +1801,14 @@ input{
 }
 
 
-.filtros-produtos-extras{
-  grid-column:1 / -1;
-  display:flex;
-  flex-direction:column;
-  gap:16px;
-}
-
-.filtros-produtos-extras-topo{
-  background:#101010;
-  border:1px solid rgba(255, 215, 0, 0.2);
-  border-radius:18px;
-  padding:18px;
-  box-shadow:0 10px 22px rgba(0,0,0,.22);
-}
-
-.filtros-produtos-extras-topo h3{
-  margin:0 0 6px;
-}
-
-.filtros-produtos-extras-topo p{
-  margin:0;
-  color:#d2d2d2;
-}
-
-.filtros-produtos-extras-grid{
-  padding:0;
-}
-
-.filtro-produto-btn{
-  width:100%;
-  border:1px solid rgba(255, 215, 0, 0.18);
-  background:#111;
-  color:#fff;
-  font-weight:700;
-}
-
-.filtro-produto-btn.ativo{
-  background:gold;
-  color:#000;
-  border-color:gold;
-}
-
-.aviso-sem-produtos-filtrados{
-  grid-column:1 / -1;
-  background:#111;
-  border:1px dashed rgba(255, 215, 0, 0.35);
-  border-radius:18px;
-  padding:22px;
-  text-align:center;
-  color:#f3f3f3;
-}
-
-
-/* ===== Ajustes extras de conforto no celular ===== */
-@media (max-width: 768px){
-  html{
-    scroll-padding-top:88px;
+@keyframes setaMenuMobile{
+  0%, 100%{
+    transform:translateX(0);
+    opacity:0.7;
   }
 
-  .aviso{
-    padding:12px 14px;
-    font-size:14px;
-    line-height:1.45;
-  }
-
-  .tag-topo{
-    font-size:12px;
-    padding:7px 12px;
-  }
-
-  .hero-home-cards,
-  .topo-categoria-info,
-  .topo-produto-info{
-    gap:12px;
-  }
-
-  .mini-card-destaque{
-    padding:16px;
-  }
-
-  .times .grid,
-  #outrosProdutos.grid,
-  .categorias-grid{
-    grid-template-columns:repeat(2, minmax(0, 1fr));
-  }
-
-  #camisas.grid{
-    grid-template-columns:repeat(2, minmax(0, 1fr));
-  }
-
-  .card,
-  #outrosProdutos .card,
-  .categoria-box{
-    min-height:72px;
-    padding:16px 12px;
-    font-size:14px;
-  }
-
-  .camisa{
-    padding:14px;
-    border-radius:16px;
-  }
-
-  .camisa img{
-    height:160px;
-    margin-bottom:8px;
-  }
-
-  .camisa h3{
-    margin:4px 0 6px;
-    font-size:16px;
-  }
-
-  .camisa p,
-  .texto-card-produto,
-  .mini-avaliacao,
-  .avaliacao-resumo{
-    font-size:13px;
-  }
-
-  .camisa button,
-  .camisa .btn-link-principal,
-  .camisa .btn-link-secundario{
-    padding:10px 12px;
-    font-size:13px;
-  }
-
-  .secao-catalogo-topo p,
-  .topo-categoria-texto p,
-  .topo-produto-texto p,
-  .hero-home-texto p{
-    line-height:1.5;
-  }
-}
-
-@media (max-width: 520px){
-  .times .grid,
-  #outrosProdutos.grid,
-  .categorias-grid,
-  #camisas.grid{
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-  }
-
-  .produto-configuracoes,
-  .produto-acoes,
-  .carrinho-acoes,
-  .modal-entrega-acoes{
-    gap:8px;
-  }
-
-  .card,
-  #outrosProdutos .card,
-  .categoria-box{
-    min-height:68px;
-    padding:14px 10px;
-    font-size:13px;
-    border-radius:14px;
-  }
-
-  .camisa{
-    padding:12px;
-  }
-
-  .camisa img{
-    height:138px;
-  }
-
-  .camisa h3{
-    font-size:15px;
-  }
-
-  .camisa p,
-  .texto-card-produto,
-  .mini-avaliacao,
-  .avaliacao-resumo{
-    font-size:12px;
-  }
-
-  .camisa button{
-    font-size:12px;
+  50%{
+    transform:translateX(6px);
+    opacity:1;
   }
 }
