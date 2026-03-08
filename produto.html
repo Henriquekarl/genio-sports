@@ -2,7 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
   <title>Produto - Gênio Sports</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -14,6 +15,7 @@
     </div>
 
     <nav class="menu">
+      <a href="index.html#nao-achou-modelo" class="menu-link-destaque">Não achou o modelo?</a>
       <a href="index.html">Início</a>
       <a href="como-comprar.html">Como comprar</a>
       <a
@@ -31,22 +33,22 @@
 
   <section class="topo-produto">
     <div class="topo-produto-texto">
-      <span class="tag-topo">Produto selecionado</span>
-      <h1>Configure sua camisa do jeito certo</h1>
+      <span class="tag-topo" id="tagProdutoTopo">Produto selecionado</span>
+      <h1 id="tituloProdutoTopo">Configure sua camisa do jeito certo</h1>
       <p>
-        Escolha versão, tamanho e personalização para ver o preço exato antes de chamar no WhatsApp.
+        Escolha as opções disponíveis para ver o preço exato antes de chamar no WhatsApp.
       </p>
     </div>
 
     <div class="topo-produto-info">
       <div class="mini-card-destaque">
         <strong>Preço real</strong>
-        <span>O valor muda conforme versão, tamanho e extras escolhidos</span>
+        <span id="textoInfoPrecoTopo">O valor muda conforme versão, tamanho e extras escolhidos</span>
       </div>
 
       <div class="mini-card-destaque">
         <strong>Pedido direto</strong>
-        <span>Você escolhe tudo aqui e envia já pronto no WhatsApp</span>
+        <span id="textoInfoPedidoTopo">Você escolhe tudo aqui e envia já pronto no WhatsApp</span>
       </div>
     </div>
   </section>
@@ -58,7 +60,7 @@
   <section class="bloco-info-produto">
     <div class="info-produto-card">
       <h2>Informações importantes</h2>
-      <ul>
+      <ul id="listaInfoImportanteProduto">
         <li>Versão torcedor e jogador têm preços diferentes</li>
         <li>G3 e G4 podem alterar o valor</li>
         <li>Nome, número, patch e patrocinadores são cobrados separadamente</li>
@@ -68,7 +70,7 @@
 
     <div class="info-produto-card">
       <h2>Como funciona</h2>
-      <ol>
+      <ol id="listaComoFuncionaProduto">
         <li>Escolha versão e tamanho</li>
         <li>Marque os extras que quiser</li>
         <li>Veja o preço calculado na hora</li>
@@ -78,8 +80,8 @@
   </section>
 
   <section class="cta-final">
-    <h2>Precisa de ajuda com tamanho ou personalização?</h2>
-    <p>Chame no WhatsApp e fale diretamente com o vendedor.</p>
+    <h2 id="ctaProdutoTitulo">Precisa de ajuda com tamanho ou personalização?</h2>
+    <p id="ctaProdutoTexto">Chame no WhatsApp e fale diretamente com o vendedor.</p>
 
     <div class="cta-links">
       <a

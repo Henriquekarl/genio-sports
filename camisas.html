@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Camisas - Gênio Sports</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,7 +15,7 @@
     </div>
 
     <nav class="menu">
-      <a href="index.html#rodape-home" class="link-modelo-header">Não achou o modelo?</a>
+      <a href="index.html#nao-achou-modelo" class="menu-link-destaque">Não achou o modelo?</a>
       <a href="index.html">Início</a>
       <a href="como-comprar.html">Como comprar</a>
       <a
@@ -32,9 +33,9 @@
 
   <section class="topo-categoria">
     <div class="topo-categoria-texto">
-      <span class="tag-topo">Catálogo de camisas</span>
+      <span class="tag-topo" id="tagCatalogo">Catálogo de camisas</span>
       <h1 id="nomeTime">Camisas</h1>
-      <p>
+      <p id="descricaoCatalogo">
         Escolha o modelo, abra a página individual e configure versão, tamanho e extras para ver o preço exato.
       </p>
     </div>
@@ -52,21 +53,21 @@
     </div>
   </section>
 
-  <section class="aviso">
+  <section class="aviso" id="avisoCatalogo">
     Escolha sua camisa e <b>configure o preço exato</b> na página do produto
   </section>
 
   <section class="faixas-info faixas-camisas">
     <div class="faixa-item">✅ Escolha o modelo</div>
     <div class="faixa-item">📏 Selecione tamanho</div>
-    <div class="faixa-item">🎨 Adicione personalização</div>
+    <div class="faixa-item" id="faixaPasso3">🎨 Adicione personalização</div>
     <div class="faixa-item">💬 Finalize pelo WhatsApp</div>
   </section>
 
   <section class="secao-catalogo">
     <div class="secao-catalogo-topo">
       <div>
-        <h2>Modelos disponíveis</h2>
+        <h2 id="modelosDisponiveis">Modelos disponíveis</h2>
         <p>Clique na camisa para abrir a página individual e configurar seu pedido.</p>
       </div>
     </div>
@@ -79,25 +80,25 @@
 
     <div class="duvidas-grid">
       <div class="duvida-card">
-        <h3>O preço já está final?</h3>
+        <h3 id="duvidaPreco">O preço já está final?</h3>
         <p>Não. O valor final aparece na página da camisa, conforme versão, tamanho e extras escolhidos.</p>
       </div>
 
       <div class="duvida-card">
-        <h3>Posso personalizar?</h3>
+        <h3 id="duvidaPersonalizacao">Posso personalizar?</h3>
         <p>Sim. Você pode adicionar nome e número, patch e patrocinadores, quando quiser.</p>
       </div>
 
       <div class="duvida-card">
-        <h3>Como compro?</h3>
+        <h3 id="duvidaComo">Como compro?</h3>
         <p>Abra a camisa, configure tudo e envie o pedido diretamente no WhatsApp.</p>
       </div>
     </div>
   </section>
 
   <section class="cta-final">
-    <h2>Quer ver preços, tamanhos e extras?</h2>
-    <p>Abra a página da camisa e monte seu pedido do jeito certo.</p>
+    <h2 id="ctaCatalogoTitulo">Quer ver preços, tamanhos e extras?</h2>
+    <p id="ctaCatalogoTexto">Abra a página da camisa e monte seu pedido do jeito certo.</p>
 
     <div class="cta-links">
       <a href="como-comprar.html" class="btn-link-secundario">

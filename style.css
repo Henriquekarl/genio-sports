@@ -40,6 +40,91 @@ header{
   flex-wrap:wrap;
 }
 
+.busca-inteligente{
+  position:relative;
+  flex:1;
+  max-width:420px;
+}
+
+#buscaInteligente{
+  width:100%;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid rgba(255, 215, 0, 0.45);
+  background:#111;
+  color:#fff;
+  outline:none;
+  font-size:15px;
+}
+
+#buscaInteligente::placeholder{
+  color:#a8a8a8;
+}
+
+#buscaInteligente:focus{
+  border-color:gold;
+  box-shadow:0 0 0 2px rgba(255, 215, 0, 0.14);
+}
+
+.resultados-busca{
+  position:absolute;
+  top:calc(100% + 8px);
+  left:0;
+  right:0;
+  background:#0c0c0c;
+  border:1px solid rgba(255, 215, 0, 0.45);
+  border-radius:14px;
+  overflow:hidden;
+  display:none;
+  max-height:420px;
+  overflow-y:auto;
+  z-index:1200;
+  box-shadow:0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.resultados-busca.ativo{
+  display:block;
+}
+
+.resultado-busca-item{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  width:100%;
+  padding:14px 16px;
+  background:transparent;
+  color:#fff;
+  border:none;
+  border-bottom:1px solid rgba(255, 255, 255, 0.06);
+  text-align:left;
+  cursor:pointer;
+}
+
+.resultado-busca-item:last-child{
+  border-bottom:none;
+}
+
+.resultado-busca-item:hover,
+.resultado-busca-item:focus{
+  background:#171717;
+}
+
+.resultado-busca-titulo{
+  font-size:15px;
+  font-weight:700;
+}
+
+.resultado-busca-info{
+  font-size:13px;
+  color:#d0d0d0;
+}
+
+.resultado-busca-vazio{
+  padding:14px 16px;
+  color:#d0d0d0;
+  font-size:14px;
+}
+
 header input{
   padding:10px 12px;
   border-radius:8px;
@@ -758,6 +843,16 @@ button:hover{
   gap:18px;
 }
 
+.menu a,
+.btn-carrinho-topo{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  margin:0;
+  line-height:1;
+}
+
 .menu a{
   color:white;
   text-decoration:none;
@@ -1250,4 +1345,493 @@ body.modal-aberto{
 
 .status-cep.erro{
   color:#ff8a8a;
+}
+
+
+.produto-configuracoes:empty{display:none;}
+
+#outrosProdutos .card{min-height:110px; display:flex; align-items:center; justify-content:center; text-align:center;}
+
+@media (max-width: 768px){
+  #outrosProdutos .card{min-height:90px;}
+}
+
+
+@media (max-width: 900px){
+  header{
+    flex-wrap:wrap;
+  }
+
+  .busca-inteligente{
+    order:3;
+    flex:1 1 100%;
+    max-width:none;
+  }
+}
+
+
+/* ===== Melhorias de apresentação e mobile (Android / iOS) ===== */
+:root{
+  --bg:#000;
+  --card:#101010;
+  --card-2:#151515;
+  --line:rgba(255,215,0,.22);
+  --line-strong:rgba(255,215,0,.55);
+  --text:#fff;
+  --muted:#d2d2d2;
+  --radius:18px;
+  --shadow:0 10px 30px rgba(0,0,0,.28);
+}
+
+html{
+  -webkit-text-size-adjust:100%;
+}
+
+body{
+  line-height:1.45;
+  overflow-x:hidden;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+header{
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  background:rgba(0,0,0,.92);
+  padding:14px 20px;
+  box-shadow:0 8px 24px rgba(0,0,0,.22);
+}
+
+.logo{
+  letter-spacing:.2px;
+}
+
+.menu a,
+.btn-carrinho-topo,
+.btn-link-principal,
+.btn-link-secundario,
+button,
+select,
+input{
+  min-height:44px;
+}
+
+.menu{
+  flex-wrap:wrap;
+}
+
+.menu a,
+.btn-carrinho-topo{
+  border-radius:999px;
+}
+
+.hero-home,
+.topo-categoria,
+.topo-produto,
+.secao-modelo-personalizado,
+.vantagens-loja,
+.duvidas-rapidas,
+.tabela-precos,
+.produto-unico{
+  scroll-margin-top:100px;
+}
+
+.hero-home,
+.topo-categoria,
+.topo-produto{
+  min-height:clamp(320px, 48vh, 560px);
+}
+
+.mini-card-destaque,
+.vantagem-card,
+.duvida-card,
+.pedido-card,
+.info-produto-card,
+.avaliacoes-box,
+.tabela-box,
+.camisa,
+.produto-card,
+.produto-info{
+  box-shadow:var(--shadow);
+}
+
+.grid{
+  align-items:stretch;
+}
+
+.card,
+.categoria-box,
+.camisa,
+.vantagem-card,
+.duvida-card,
+.pedido-card,
+.info-produto-card,
+.tabela-box,
+.produto-card,
+.produto-info{
+  border-radius:var(--radius);
+}
+
+.card{
+  min-height:96px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  line-height:1.3;
+  box-shadow:0 10px 22px rgba(0,0,0,.22);
+}
+
+.camisa{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+
+.camisa h3{
+  line-height:1.25;
+}
+
+.camisa .botoes-card,
+.camisa > div:last-child{
+  margin-top:auto;
+}
+
+.camisa img,
+.produto-imagem{
+  width:100%;
+}
+
+.produto-layout{
+  gap:28px;
+}
+
+.produto-info{
+  position:sticky;
+  top:96px;
+}
+
+.produto-configuracoes select,
+.form-avaliacao input,
+.form-avaliacao select,
+.form-avaliacao textarea,
+.form-entrega input,
+#buscaInteligente{
+  font-size:16px;
+}
+
+.resultado-busca-item{
+  min-height:56px;
+}
+
+.whatsapp-flutuante{
+  min-height:52px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+@media (max-width: 1024px){
+  .produto-info{
+    position:static;
+  }
+
+  .hero-home-texto h1,
+  .topo-categoria-texto h1,
+  .topo-produto-texto h1,
+  .secao-modelo-personalizado h2{
+    font-size:clamp(28px, 5vw, 40px);
+  }
+}
+
+@media (max-width: 768px){
+  body{
+    padding-bottom:84px;
+  }
+
+  header{
+    gap:12px;
+    padding:12px;
+  }
+
+  .logo{
+    text-align:center;
+    width:100%;
+    font-size:24px;
+  }
+
+  .busca-inteligente{
+    width:100%;
+  }
+
+  #buscaInteligente{
+    border-radius:14px;
+    padding:14px 16px;
+  }
+
+  .resultados-busca{
+    border-radius:16px;
+    max-height:52vh;
+  }
+
+  .menu{
+    width:100%;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    justify-content:flex-start;
+    gap:10px;
+    padding-bottom:4px;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .menu::-webkit-scrollbar{
+    display:none;
+  }
+
+  .menu a,
+  .btn-carrinho-topo{
+    flex:0 0 auto;
+    white-space:nowrap;
+    padding:12px 14px;
+    font-size:14px;
+    margin:0;
+  }
+
+  .menu-link-destaque{
+    width:auto;
+  }
+
+  .hero-home,
+  .topo-categoria,
+  .topo-produto,
+  .secao-modelo-personalizado{
+    padding:24px 15px;
+    gap:18px;
+    min-height:auto;
+  }
+
+  .hero-home-texto p,
+  .topo-categoria-texto p,
+  .topo-produto-texto p,
+  .secao-modelo-personalizado p{
+    font-size:15px;
+  }
+
+  .hero-home-botoes,
+  .cta-links{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .btn-link-principal,
+  .btn-link-secundario,
+  .produto-acoes button{
+    width:100%;
+  }
+
+  .faixas-info,
+  .categorias-rapidas,
+  .vantagens-loja,
+  .duvidas-rapidas,
+  .tabela-precos,
+  .produto-unico,
+  .bloco-info-produto,
+  .secao-catalogo,
+  .times{
+    padding-left:0;
+    padding-right:0;
+  }
+
+  .secao-catalogo-topo,
+  .times h2,
+  .vantagens-loja h2,
+  .duvidas-rapidas h2,
+  .tabela-precos h2{
+    padding-left:15px;
+    padding-right:15px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .card,
+  #outrosProdutos .card,
+  .categoria-box{
+    min-height:78px;
+    padding:20px 16px;
+  }
+
+  .camisa{
+    padding:16px;
+  }
+
+  .camisa img{
+    height:210px;
+  }
+
+  .texto-card-produto{
+    min-height:auto;
+  }
+
+  .produto-layout{
+    gap:18px;
+  }
+
+  .produto-card,
+  .produto-info,
+  .avaliacoes-box,
+  .info-produto-card,
+  .tabela-box,
+  .vantagem-card,
+  .duvida-card,
+  .pedido-card{
+    padding:18px;
+  }
+
+  .produto-imagem{
+    height:280px;
+  }
+
+  .produto-info h2{
+    font-size:28px;
+    line-height:1.15;
+  }
+
+  .bloco-preco-produto{
+    padding:14px;
+  }
+
+  .preco-destaque{
+    font-size:30px;
+  }
+
+  .check-linha{
+    align-items:flex-start;
+  }
+
+  .carrinho{
+    width:100%;
+    border-left:none;
+    right:-100%;
+    border-top-left-radius:18px;
+    border-top-right-radius:18px;
+    top:auto;
+    bottom:-100%;
+    height:min(82vh, 760px);
+    padding-bottom:calc(22px + env(safe-area-inset-bottom));
+  }
+
+  .carrinho.ativo{
+    right:0;
+    bottom:0;
+  }
+
+  .carrinho-topo{
+    position:sticky;
+    top:0;
+    background:#111;
+    padding-bottom:10px;
+    z-index:2;
+  }
+
+  .whatsapp-flutuante{
+    left:12px;
+    right:12px;
+    bottom:calc(12px + env(safe-area-inset-bottom));
+    border-radius:16px;
+    text-align:center;
+    padding:14px 18px;
+  }
+
+  .modal-entrega{
+    align-items:flex-end;
+    padding:0;
+  }
+
+  .modal-entrega-caixa{
+    width:100%;
+    max-height:92vh;
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0;
+    padding-bottom:calc(18px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 420px){
+  .hero-home-texto h1,
+  .topo-categoria-texto h1,
+  .topo-produto-texto h1,
+  .secao-modelo-personalizado h2{
+    font-size:26px;
+  }
+
+  .logo{
+    font-size:22px;
+  }
+
+  .preco-destaque{
+    font-size:27px;
+  }
+
+  .produto-imagem{
+    height:240px;
+  }
+}
+
+
+.filtros-produtos-extras{
+  grid-column:1 / -1;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.filtros-produtos-extras-topo{
+  background:#101010;
+  border:1px solid rgba(255, 215, 0, 0.2);
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 10px 22px rgba(0,0,0,.22);
+}
+
+.filtros-produtos-extras-topo h3{
+  margin:0 0 6px;
+}
+
+.filtros-produtos-extras-topo p{
+  margin:0;
+  color:#d2d2d2;
+}
+
+.filtros-produtos-extras-grid{
+  padding:0;
+}
+
+.filtro-produto-btn{
+  width:100%;
+  border:1px solid rgba(255, 215, 0, 0.18);
+  background:#111;
+  color:#fff;
+  font-weight:700;
+}
+
+.filtro-produto-btn.ativo{
+  background:gold;
+  color:#000;
+  border-color:gold;
+}
+
+.aviso-sem-produtos-filtrados{
+  grid-column:1 / -1;
+  background:#111;
+  border:1px dashed rgba(255, 215, 0, 0.35);
+  border-radius:18px;
+  padding:22px;
+  text-align:center;
+  color:#f3f3f3;
 }

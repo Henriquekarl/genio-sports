@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Gênio Sports</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,6 +13,16 @@
 
   <div class="logo" onclick="window.location.href='index.html'" style="cursor:pointer">
     Gênio Sports
+  </div>
+
+  <div class="busca-inteligente">
+    <input
+      type="text"
+      id="buscaInteligente"
+      placeholder="Pesquisar time, camisa ou produto"
+      autocomplete="off"
+    >
+    <div id="resultadosBusca" class="resultados-busca"></div>
   </div>
 
   <nav class="menu">
@@ -106,6 +117,7 @@
       <div class="card" onclick="abrirTime('Cruzeiro')">Cruzeiro</div>
       <div class="card" onclick="abrirTime('Atlético Mineiro')">Atlético Mineiro</div>
       <div class="card" onclick="abrirTime('Botafogo')">Botafogo</div>
+      <div class="card" onclick="abrirTime('Remo')">Remo</div>
     </div>
 
     <h2 id="europa">Europa</h2>
@@ -137,7 +149,7 @@
     <div class="secao-catalogo-topo">
       <div>
         <h2>Outros produtos</h2>
-        <p>Também trabalhamos com shorts, agasalhos, NBA, NFL, F1 e outros produtos.</p>
+        <p>Escolha uma categoria e abra a página com os modelos disponíveis do mesmo jeito das camisas.</p>
       </div>
     </div>
 
