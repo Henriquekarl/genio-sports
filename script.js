@@ -142,6 +142,49 @@ Object.entries(catalogoProdutosExtras).forEach(([categoria, produtos]) => {
   });
 });
 
+
+function rolarParaAncoraComOffset(hash) {
+  if (!hash || hash === '#') return;
+
+  const id = decodeURIComponent(hash.replace('#', ''));
+  const alvo = document.getElementById(id);
+  if (!alvo) return;
+
+  const header = document.querySelector('header');
+  const alturaHeader = header ? header.offsetHeight : 0;
+  const margemExtra = window.innerWidth <= 768 ? 12 : 18;
+  const topo = alvo.getBoundingClientRect().top + window.pageYOffset - alturaHeader - margemExtra;
+
+  window.scrollTo({
+    top: Math.max(topo, 0),
+    behavior: 'smooth'
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link) return;
+
+    const href = link.getAttribute('href');
+    if (!href || href === '#') return;
+
+    const id = decodeURIComponent(href.slice(1));
+    const alvo = document.getElementById(id);
+    if (!alvo) return;
+
+    event.preventDefault();
+    history.replaceState(null, '', href);
+    rolarParaAncoraComOffset(href);
+  });
+
+  if (window.location.hash) {
+    setTimeout(() => {
+      rolarParaAncoraComOffset(window.location.hash);
+    }, 120);
+  }
+});
+
 const TIMES_DISPONIVEIS = [
   "Flamengo", "Corinthians", "Palmeiras", "São Paulo", "Santos", "Grêmio", "Internacional", "Cruzeiro", "Atlético Mineiro", "Botafogo", "Remo",
   "Real Madrid", "Barcelona", "Manchester City", "Manchester United", "Liverpool", "Arsenal", "Chelsea", "PSG", "Bayern", "Juventus",
