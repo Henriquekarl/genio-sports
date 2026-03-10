@@ -1591,6 +1591,26 @@ input{
     display:none;
   }
 
+
+  .menu{
+    position:relative;
+    padding-right:34px;
+    padding-bottom:18px;
+  }
+
+  .menu::after{
+    content:"›";
+    position:absolute;
+    right:14px;
+    bottom:0;
+    font-size:22px;
+    line-height:1;
+    color:gold;
+    opacity:0.95;
+    pointer-events:none;
+    animation:seta-menu-mobile 1.2s ease-in-out infinite;
+  }
+
   .menu a,
   .btn-carrinho-topo{
     flex:0 0 auto;
@@ -1783,6 +1803,12 @@ input{
   }
 }
 
+
+
+@keyframes seta-menu-mobile{
+  0%, 100%{transform:translateX(0);}
+  50%{transform:translateX(6px);}
+}
 
 .filtros-produtos-extras{
   grid-column:1 / -1;

@@ -146,7 +146,7 @@ Object.entries(catalogoProdutosExtras).forEach(([categoria, produtos]) => {
 
 const TIMES_DISPONIVEIS = [
   "Flamengo", "Corinthians", "Palmeiras", "São Paulo", "Santos", "Grêmio", "Internacional", "Cruzeiro", "Atlético Mineiro", "Botafogo", "Remo",
-  "Real Madrid", "Barcelona", "Manchester City", "Manchester United", "Liverpool", "Arsenal", "Chelsea", "PSG", "Bayern", "Juventus",
+  "Real Madrid", "Barcelona", "Manchester City", "Manchester United", "Liverpool", "Arsenal", "Chelsea", "PSG", "Bayern", "Juventus", "Milan", "Lazio", "Inter de Milão", "Roma", "Borussia Dortmund", "Ajax", "Atlético de Madrid", "Tottenham", "Aston Villa", "Porto", "Gijon",
   "Brasil", "Argentina", "Portugal", "França", "Alemanha", "Espanha"
 ];
 
@@ -1028,6 +1028,71 @@ function montarCamisasDoTime(time) {
       { nome: "Santos Retrô Home 2011/12", img: "imagens/Retro 2011-12 Santos Home.jpg" },
       { nome: "Santos Retrô Home 2001", img: "imagens/Retro 2001 Santos Home Jersey.jpeg" },
       { nome: "Santos Retrô Away 1996", img: "imagens/Retro 1996 Santos Away.jpeg" }
+    ],
+    ajax: [
+      { nome: "Ajax Away 24/25", img: "imagens/ajax_away_24-25.webp" }
+    ],
+    arsenal: [
+      { nome: "Arsenal Home 25/26", img: "imagens/arsenal_home_25-26.webp" },
+      { nome: "Arsenal Third 24/25", img: "imagens/arsenal_third_24-25.webp" }
+    ],
+    astonvilla: [
+      { nome: "Aston Villa Home 22/23", img: "imagens/aston_villa_home_22-23.jpg" }
+    ],
+    atleticodemadrid: [
+      { nome: "Atlético de Madrid Home 24/25", img: "imagens/atletico_de_madrid_home_24-25.webp" }
+    ],
+    bayern: [
+      { nome: "Bayern Home 24/25", img: "imagens/Bayern de Munich Home 24-25.jpg" }
+    ],
+    borussiadortmund: [
+      { nome: "Borussia Dortmund Home 24/25", img: "imagens/Camisa Borussia Dortmund Home 24-25.webp" }
+    ],
+    chelsea: [
+      { nome: "Chelsea Home 25/26", img: "imagens/chelsea_home_25-26.webp" },
+      { nome: "Chelsea Away 25/26", img: "imagens/chelsea_away_25-26.webp" }
+    ],
+    interdemilao: [
+      { nome: "Inter de Milão Home 24/25", img: "imagens/inter_home_24-25.webp" }
+    ],
+    juventus: [
+      { nome: "Juventus Home 24/25", img: "imagens/Juventus Home 24-25.webp" }
+    ],
+    lazio: [
+      { nome: "Lazio Special 24/25", img: "imagens/lazio_special_24-25.webp" }
+    ],
+    liverpool: [
+      { nome: "Liverpool Away 24/25", img: "imagens/liverpool_away_24-25.webp" }
+    ],
+    manchestercity: [
+      { nome: "Manchester City Home 24/25", img: "imagens/manchester_city_home_24-25.webp" }
+    ],
+    manchesterunited: [
+      { nome: "Manchester United Away 24/25", img: "imagens/manchester_united_away_24-25.webp" }
+    ],
+    milan: [
+      { nome: "Milan Home 24/25", img: "imagens/milan_home_24-25.webp" }
+    ],
+    porto: [
+      { nome: "Porto Home 24/25", img: "imagens/porto_home_24-25.webp" },
+      { nome: "Porto Away 24/25", img: "imagens/porto_away_24-25.webp" }
+    ],
+    psg: [
+      { nome: "PSG Away 24/25", img: "imagens/psg_away_24-25.webp" },
+      { nome: "PSG Third 24/25", img: "imagens/psg_third_24-25.webp" }
+    ],
+    realmadrid: [
+      { nome: "Real Madrid Dragon Special 24/25", img: "imagens/real_madrid_dragon_special_24-25.jpeg" }
+    ],
+    roma: [
+      { nome: "Roma Home 22/23", img: "imagens/Roma Home 22-23.webp" }
+    ],
+    gijon: [
+      { nome: "Gijon Home 25/26", img: "imagens/Sporting Gijon Home 25-26.webp" }
+    ],
+    tottenham: [
+      { nome: "Tottenham Home 24/25", img: "imagens/tottenham_home_24-25.webp" },
+      { nome: "Tottenham Away 24/25", img: "imagens/tottenham_away_24-25.webp" }
     ]
   };
 
