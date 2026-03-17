@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <title>Como Comprar - Gênio Sports</title>
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo" onclick="window.location.href='index.html'" style="cursor:pointer" aria-label="Ir para a página inicial da Gênio Sports">
+    <img src="assets/logo-genio-sports.png" alt="Logo Gênio Sports" class="logo-img">
+    <span class="logo-text">Gênio Sports</span>
+  </div>
+
+    <nav class="menu">
+      <a href="index.html#nao-achou-modelo" class="menu-link-destaque">Não achou o modelo?</a>
+      <a href="index.html">Início</a>
+      <a href="como-comprar.html">Como comprar</a>
+      <a
+        href="https://www.instagram.com/genio_sports?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </a>
+      <button class="btn-carrinho-topo" type="button" onclick="abrirCarrinho()">
+        🛒 Carrinho (<span id="contadorCarrinho">0</span>)
+      </button>
+    </nav>
+  </header>
+
+  <section class="topo-produto">
+    <div class="topo-produto-texto">
+      <span class="tag-topo">Guia de compra</span>
+      <h1>Como comprar na Gênio Sports</h1>
+      <p>
+        Escolha seu produto, fale conosco no WhatsApp e finalize seu pedido com atendimento direto.
+      </p>
+    </div>
+
+    <div class="topo-produto-info">
+      <div class="mini-card-destaque">
+        <strong>Atendimento simples</strong>
+        <span>Você escolhe no site e fecha tudo direto no WhatsApp</span>
+      </div>
+
+      <div class="mini-card-destaque">
+        <strong>Valores claros</strong>
+        <span>Confira preços, personalização, frete e condições de pagamento</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloco-info-produto">
+    <div class="info-produto-card">
+      <h2>Passo a passo</h2>
+      <ol>
+        <li>Escolha o time, a camisa ou o produto desejado no site</li>
+        <li>Adicione ao carrinho ou clique em comprar no WhatsApp</li>
+        <li>Envie a mensagem com o link do produto</li>
+        <li>Informe tamanho, versão e possíveis personalizações</li>
+        <li>Receba o valor final com frete</li>
+        <li>Faça o pagamento</li>
+        <li>Depois da confirmação do pagamento, a peça é enviada</li>
+      </ol>
+    </div>
+
+    <div class="info-produto-card">
+      <h2>Pagamento</h2>
+      <ul>
+        <li>À vista no Pix antes do envio da peça</li>
+        <li>Parcelado aumenta 10% no valor total da compra</li>
+        <li>Parcelamento em até 3 vezes</li>
+        <li>Camisas personalizadas com criação do cliente exigem 50% de sinal no pedido</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="tabela-precos">
+    <h2>Tabela de valores</h2>
+
+    <div class="tabela-box">
+      <h3>Camisas</h3>
+      <ul>
+        <li>Versão torcedor do P ao G2 — <strong>R$160,00</strong></li>
+        <li>Versão torcedor G3 e G4 — <strong>R$190,00</strong></li>
+        <li>Versão jogador do P ao G2 — <strong>R$220,00</strong></li>
+        <li>Versão jogador G3 — <strong>R$240,00</strong></li>
+        <li>Versão jogador G4 — <strong>R$260,00</strong></li>
+        <li>Versão jogador manga longa P ao G2 — <strong>R$280,00</strong></li>
+        <li>Retrô do P ao G2 — <strong>R$190,00</strong></li>
+        <li>Camisas femininas — <strong>mesmos valores das masculinas</strong></li>
+        <li>Shorts futebol — <strong>R$120,00</strong></li>
+        <li>Shorts NBA — <strong>R$140,00</strong></li>
+      </ul>
+    </div>
+
+    <div class="tabela-box">
+      <h3>Personalização</h3>
+      <ul>
+        <li>Patrocinadores — <strong>R$80,00</strong></li>
+        <li>Nome e número — <strong>R$40,00</strong></li>
+        <li>Patch — <strong>R$30,00</strong></li>
+      </ul>
+    </div>
+
+    <div class="tabela-box">
+      <h3>Agasalhos</h3>
+      <ul>
+        <li>Blusa 3 cabos do M ao GG — <strong>R$180,00</strong></li>
+        <li>Treino calça e blusa do P ao G2 — <strong>R$320,00</strong></li>
+        <li>Treino calça e camisa do P ao G2 — <strong>R$290,00</strong></li>
+        <li>Treino bermuda e manga curta ou regata do P ao G2 — <strong>R$260,00</strong></li>
+        <li>Corta vento e outros a partir de — <strong>R$320,00</strong></li>
+        <li>Bobojaco — <strong>R$420,00</strong></li>
+      </ul>
+    </div>
+
+    <div class="tabela-box">
+      <h3>Outros produtos</h3>
+      <ul>
+        <li>Kit infantil — <strong>R$190,00</strong></li>
+        <li>F1 (camisas) — <strong>R$250,00</strong></li>
+        <li>NBA — <strong>R$240,00</strong></li>
+        <li>NFL — <strong>R$240,00</strong></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bloco-info-produto">
+    <div class="info-produto-card">
+      <h2>Frete</h2>
+      <ul>
+        <li>O frete é por conta do comprador</li>
+        <li>O valor é calculado pelo CEP</li>
+        <li>As opções são enviadas ao cliente antes de efetivar a compra</li>
+        <li>O envio é feito após a confirmação do pagamento</li>
+      </ul>
+    </div>
+
+    <div class="info-produto-card">
+      <h2>Instagram da loja</h2>
+      <p class="texto-claro">
+        Acompanhe novidades, modelos e conteúdo da loja no Instagram.
+      </p>
+
+      <a
+        href="https://www.instagram.com/genio_sports?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-link-principal"
+      >
+        Ver Instagram @genio_sports
+      </a>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <h2>Pronto para pedir?</h2>
+    <p>Fale no WhatsApp e envie o produto que você quer comprar.</p>
+
+    <div class="cta-links">
+      <a
+        href="#"
+        onclick="abrirWhatsDuvida(); return false;"
+        class="btn-link-principal"
+      >
+        Comprar no WhatsApp
+      </a>
+
+      <a
+        href="https://www.instagram.com/genio_sports?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-link-secundario"
+      >
+        Instagram @genio_sports
+      </a>
+    </div>
+  </section>
+
+  <footer class="rodape">
+    <div class="rodape-logo">
+      <img src="assets/logo-genio-sports.png" alt="Logo Gênio Sports" class="rodape-logo-img">
+      <span>Gênio Sports</span>
+    </div>
+    <div class="rodape-links"><a href="politica-de-privacidade.html">Política de Privacidade</a></div>
+    <p>Atendimento direto pelo WhatsApp e novidades no Instagram @genio_sports.</p>
+  </footer>
+
+  <div id="fundoCarrinho" class="fundo-carrinho" onclick="fecharCarrinho()"></div>
+
+  <aside id="carrinho" class="carrinho">
+    <div class="carrinho-topo">
+      <h2>Carrinho</h2>
+      <button class="btn-fechar-carrinho" type="button" onclick="fecharCarrinho()">✕</button>
+    </div>
+
+    <ul id="listaCarrinho"></ul>
+
+    <div class="carrinho-acoes">
+      <button type="button" onclick="comprarCarrinho()">Comprar no WhatsApp</button>
+      <button class="btn-secundario" type="button" onclick="fecharCarrinho()">Continuar vendo</button>
+    </div>
+  </aside>
+
+  <a
+    class="whatsapp-flutuante"
+    href="#"
+    onclick="abrirWhatsDuvida(); return false;"
+    aria-label="Chamar no WhatsApp"
+  >
+    WhatsApp
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
