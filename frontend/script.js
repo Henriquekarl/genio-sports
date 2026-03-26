@@ -2196,7 +2196,9 @@ function ehCategoriaFeminina(categoria) {
   return categoria === "Feminino";
 }
 
-function obterPrecoMinimoCamisa(nome) {
+function obterPrecoMinimoCamisa(nome, produto = null) {
+  const precoAdmin = Number(produto?.precoBase);
+  if (Number.isFinite(precoAdmin) && precoAdmin > 0) return precoAdmin;
   return ehRetro(nome) ? 190 : 160;
 }
 
@@ -2545,7 +2547,7 @@ function criarCardCamisa(camisa) {
     <img src="${escaparHTML(camisa.img)}" alt="${escaparHTML(camisa.nome)}">
     <h3>${escaparHTML(camisa.nome)}</h3>
     <p>Camisa tailandesa</p>
-    <p><b>${formatarPreco(obterPrecoMinimoCamisa(camisa.nome))}</b></p>
+    <p><b>${formatarPreco(obterPrecoMinimoCamisa(camisa.nome, camisa))}</b></p>
     <p class="texto-card-produto">Preço final conforme versão, tamanho e extras.</p>
     ${criarResumoEstoqueHTML(camisa.tamanhos || [])}
     <div class="mini-avaliacao">${avaliacaoHTML}</div>
@@ -3013,7 +3015,10 @@ function atualizarPrecoTelaProduto(nome, img) {
   const patch = checkboxPatch ? checkboxPatch.checked : false;
   const patrocinadores = checkboxPatrocinadores ? checkboxPatrocinadores.checked : false;
 
-  const preco = calcularPrecoProduto(nome, versao, tamanho, { nomeNumero, patch, patrocinadores });
+  const precoBaseAdmin = Number(produtoAtual?.precoBase);
+  const preco = Number.isFinite(precoBaseAdmin) && precoBaseAdmin > 0
+    ? precoBaseAdmin
+    : calcularPrecoProduto(nome, versao, tamanho, { nomeNumero, patch, patrocinadores });
 
   if (!preco) {
     precoEl.textContent = "Tamanho indisponível para essa versão";
@@ -3026,14 +3031,14 @@ function atualizarPrecoTelaProduto(nome, img) {
   preencherTopoProduto({
     tag: "Produto selecionado",
     titulo: "Configure sua camisa do jeito certo",
-    infoPreco: "O valor muda conforme versão, tamanho e extras escolhidos",
+    infoPreco: "O valor mostrado segue o preço salvo no admin",
     infoPedido: "Você escolhe tudo aqui e envia já pronto no WhatsApp",
     ctaTitulo: "Precisa de ajuda com tamanho ou personalização?",
     ctaTexto: "Chame no WhatsApp e fale diretamente com o vendedor.",
     listaInfo: [
-      "Versão torcedor e jogador têm preços diferentes",
-      "G3 e G4 podem alterar o valor",
-      "Nome e número custam R$40, patch R$30 e patrocinadores R$80",
+      "O valor mostrado segue o preço salvo no admin",
+      "Versão e tamanho continuam selecionáveis normalmente",
+      "Os extras podem ser informados no pedido",
       "Parcelado aumenta 10% no valor total"
     ],
     listaComoFunciona: [
@@ -3049,7 +3054,7 @@ function atualizarPrecoTelaProduto(nome, img) {
   const versaoLabel = versaoObj ? versaoObj.label : obterLabelVersaoProduto(produtoAtual, versao) || versao;
 
   precoEl.textContent = formatarPreco(preco);
-  precoInfoEl.textContent = "Preço calculado conforme versão, tamanho e extras escolhidos.";
+  precoInfoEl.textContent = "Preço conforme o valor salvo no admin.";
 
   if (btnCarrinho) {
     btnCarrinho.disabled = false;
@@ -3463,9 +3468,7 @@ function carregarPaginaProdutoCamisaFeminina(nome, img, categoria = "Feminino") 
   const versoesHTML = opcoes.versoes.map(item => `<option value="${escaparHTML(item.valor)}">${escaparHTML(item.label)}</option>`).join("");
   const tamanhosProduto = obterTamanhosAtivosCamisa(window.__produtoPaginaAtual || {}, nome, opcoes.versoes[0].valor);
   const primeiroTamanhoDisponivel = obterPrimeiroTamanhoDisponivel(tamanhosProduto);
-  const precoInicial = primeiroTamanhoDisponivel
-    ? calcularPrecoProduto(nome, opcoes.versoes[0].valor, primeiroTamanhoDisponivel, {})
-    : null;
+  const precoInicial = Number(window.__produtoPaginaAtual?.precoBase) || null;
 
   preencherTopoProduto({
     tag: `Categoria: ${categoria}`,
@@ -3500,7 +3503,7 @@ function carregarPaginaProdutoCamisaFeminina(nome, img, categoria = "Feminino") 
 
         <div class="bloco-preco-produto">
           <div class="preco-destaque" id="precoDinamico">${precoInicial ? formatarPreco(precoInicial) : "Sem estoque no momento"}</div>
-          <small id="precoInfoTexto">Preço calculado conforme versão, tamanho e extras escolhidos.</small>
+          <small id="precoInfoTexto">Preço conforme o valor salvo no admin.</small>
         </div>
 
         <div class="produto-configuracoes">
@@ -3522,7 +3525,7 @@ function carregarPaginaProdutoCamisaFeminina(nome, img, categoria = "Feminino") 
         </div>
 
         <ul class="produto-destaques">
-          <li>Preço exato conforme sua escolha</li>
+          <li>Preço igual ao valor salvo no admin</li>
           <li>Consulte frete pelo CEP</li>
           <li>Parcelado aumenta 10% no valor total</li>
           <li>Pedido finalizado direto no WhatsApp</li>
@@ -3620,9 +3623,7 @@ async function carregarPaginaProduto() {
   const versoesHTML = opcoes.versoes.map(item => `<option value="${escaparHTML(item.valor)}">${escaparHTML(item.label)}</option>`).join("");
   const tamanhosProduto = obterTamanhosAtivosCamisa(window.__produtoPaginaAtual || {}, nome, opcoes.versoes[0].valor);
   const primeiroTamanhoDisponivel = obterPrimeiroTamanhoDisponivel(tamanhosProduto);
-  const precoInicial = primeiroTamanhoDisponivel
-    ? calcularPrecoProduto(nome, opcoes.versoes[0].valor, primeiroTamanhoDisponivel, {})
-    : null;
+  const precoInicial = Number(window.__produtoPaginaAtual?.precoBase) || null;
 
   container.innerHTML = `
     <div class="produto-layout">
@@ -3636,7 +3637,7 @@ async function carregarPaginaProduto() {
 
         <div class="bloco-preco-produto">
           <div class="preco-destaque" id="precoDinamico">${precoInicial ? formatarPreco(precoInicial) : "Sem estoque no momento"}</div>
-          <small id="precoInfoTexto">Preço calculado conforme versão, tamanho e extras escolhidos.</small>
+          <small id="precoInfoTexto">Preço conforme o valor salvo no admin.</small>
         </div>
 
         ${criarResumoAvaliacaoHTML(nome)}
@@ -3660,7 +3661,7 @@ async function carregarPaginaProduto() {
         </div>
 
         <ul class="produto-destaques">
-          <li>Preço exato conforme sua escolha</li>
+          <li>Preço igual ao valor salvo no admin</li>
           <li>Consulte frete pelo CEP</li>
           <li>Parcelado aumenta 10% no valor total</li>
           <li>Pedido finalizado direto no WhatsApp</li>
