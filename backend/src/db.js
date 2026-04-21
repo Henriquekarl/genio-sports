@@ -1,13 +1,20 @@
 const mysql = require('mysql2/promise');
 
 const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'geniosports',
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+
   waitForConnections: true,
   connectionLimit: 10,
-  queueLimit: 0
+  queueLimit: 0,
+
+  // MUITO IMPORTANTE na Hostinger
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 async function run(sql, params = []) {
@@ -26,7 +33,9 @@ async function all(sql, params = []) {
 }
 
 async function initDb() {
-  return true;
+  // Testa conexão
+  await pool.execute('SELECT 1');
+  console.log('Banco conectado com sucesso');
 }
 
 module.exports = { run, get, all, initDb };
