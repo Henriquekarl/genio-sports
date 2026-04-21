@@ -4,7 +4,7 @@ const path = require('path');
 const { initDb, run, get, all } = require('./db');
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json({ limit: '1mb' }));
