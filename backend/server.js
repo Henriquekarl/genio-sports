@@ -642,18 +642,22 @@ app.get('/api/orders', async (_req, res) => {
 app.use('/', express.static(path.join(__dirname, '..', '..', 'frontend')));
 
 async function start() {
-  await initDb();
-  const count = await get('SELECT COUNT(*) AS total FROM products');
-  if (!count?.total) {
-    console.log('Banco vazio. Rode "npm run seed" dentro da pasta backend para popular os produtos.');
+  try {
+    await initDb();
+
+    const count = await get('SELECT COUNT(*) AS total FROM products');
+    if (!count?.total) {
+      console.log('Banco vazio. Rode "npm run seed" dentro da pasta backend para popular os produtos.');
+    }
+
+    console.log('Banco conectado com sucesso');
+  } catch (error) {
+    console.error('Erro ao conectar no banco:', error.message);
   }
 
   app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`);
+    console.log(`Servidor rodando na porta ${PORT}`);
   });
 }
 
-start().catch((error) => {
-  console.error('Erro ao iniciar servidor:', error);
-  process.exit(1);
-});
+start();
