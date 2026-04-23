@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gênio Sports</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+
+  <div class="logo" onclick="window.location.href='index.html'" style="cursor:pointer" aria-label="Ir para a página inicial da Gênio Sports">
+    <img src="./assets/logo-genio-sports.png" alt="Logo Gênio Sports" class="logo-img">
+    <span class="logo-text">Gênio Sports</span>
+  </div>
+
+  <div class="busca-inteligente">
+    <input
+      type="text"
+      id="buscaInteligente"
+      placeholder="Pesquisar time, camisa ou produto"
+      autocomplete="off"
+    >
+    <div id="resultadosBusca" class="resultados-busca"></div>
+  </div>
+
+  <nav class="menu">
+
+    <a href="#nao-achou-modelo" class="menu-link-destaque">Não achou o modelo?</a>
+
+    <a href="index.html">Início</a>
+
+    <a href="como-comprar.html">Como comprar</a>
+
+    <a 
+      href="https://www.instagram.com/genio_sports?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+      target="_blank"
+    >
+      Instagram
+    </a>
+
+    <button class="btn-carrinho-topo" onclick="abrirCarrinho()">
+      🛒 Carrinho (<span id="contadorCarrinho">0</span>)
+    </button>
+
+  </nav>
+
+</header>
+
+  <section class="hero-home">
+    <div class="hero-home-texto">
+      <span class="tag-topo">Camisas tailandesas premium</span>
+      <h1>As camisas mais brabas do futebol, direto no seu WhatsApp</h1>
+      <p>
+        Escolha seu time, veja os modelos disponíveis e finalize seu pedido falando direto no WhatsApp.
+      </p>
+
+      <div class="hero-home-botoes">
+        <a href="#categorias" class="btn-link-principal" onclick="irParaCatalogo(event)">Ver catálogo</a>
+        <a
+          href="https://wa.me/5511942257565?text=Ol%C3%A1!%20Tudo%20bem%3F%20Vi%20o%20site%20da%20G%C3%AAnio%20Sports%20e%20queria%20tirar%20uma%20d%C3%BAvida%20sobre%20como%20funciona%20a%20compra."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-link-secundario"
+        >
+          Chamar no WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-home-cards">
+      <div class="mini-card-destaque">
+        <strong>Qualidade premium</strong>
+        <span>Modelos tailandeses com ótimo acabamento</span>
+      </div>
+
+      <div class="mini-card-destaque">
+        <strong>Atendimento rápido</strong>
+        <span>Pedido e dúvidas resolvidos pelo WhatsApp</span>
+      </div>
+
+      <div class="mini-card-destaque">
+        <strong>Times do mundo todo</strong>
+        <span>Brasil, Europa e seleções</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="banner-confianca-home" aria-label="Vantagens da loja">
+    <div class="banner-confianca-texto">
+      <span class="tag-topo">Compre com mais segurança</span>
+      <h2>Escolha sua camisa e fale direto com a loja sem complicação</h2>
+      <p>
+        Atendimento rápido no WhatsApp, ajuda para escolher tamanho e versão,
+        além de prova social no Instagram para você comprar com mais confiança.
+      </p>
+
+      <div class="banner-confianca-botoes">
+        <a
+          href="https://wa.me/5511942257565?text=Ol%C3%A1!%20Vi%20o%20site%20da%20G%C3%AAnio%20Sports%20e%20quero%20tirar%20uma%20d%C3%BAvida%20antes%20de%20comprar."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-link-principal"
+        >
+          Tirar dúvida no WhatsApp
+        </a>
+
+        <a
+          href="https://www.instagram.com/genio_sports?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-link-secundario"
+        >
+          Ver provas no Instagram
+        </a>
+      </div>
+    </div>
+
+    <div class="banner-confianca-lista">
+      <div class="banner-confianca-item">
+        <strong>📦 Envio para todo o Brasil</strong>
+        <span>Você consulta prazo, disponibilidade e frete direto no atendimento.</span>
+      </div>
+
+      <div class="banner-confianca-item">
+        <strong>📏 Ajuda com tamanho e versão</strong>
+        <span>Mais segurança para escolher entre torcedor, jogador e manga longa.</span>
+      </div>
+
+      <div class="banner-confianca-item">
+        <strong>⚡ Atendimento rápido</strong>
+        <span>Fale direto com a loja e finalize o pedido sem formulário complicado.</span>
+      </div>
+    </div>
+  </section>
+
+    <section class="categorias-rapidas" id="categorias">
+    <h2>Escolha por seção</h2>
+
+    <div class="categorias-grid" id="categoriasTimesHome">
+      <div class="card">Carregando seções...</div>
+    </div>
+  </section>
+
+  <section class="times" id="catalogo">
+    <div id="timesDinamicosHome">
+      <div class="aviso-sem-produtos-filtrados">Carregando times do catálogo...</div>
+    </div>
+  </section>
+
+<section class="secao-catalogo outros-produtos-home">
+    <div class="secao-catalogo-topo">
+      <div>
+        <h2>Outros produtos</h2>
+        <p>Escolha uma categoria e abra a página com os modelos disponíveis do mesmo jeito das camisas.</p>
+      </div>
+    </div>
+
+    <div id="outrosProdutos" class="grid"></div>
+  </section>
+
+  <section class="vantagens-loja">
+    <h2>Por que comprar na Gênio Sports?</h2>
+
+    <div class="vantagens-grid">
+      <div class="vantagem-card">
+        <h3>Atendimento direto</h3>
+        <p>Você fala direto no WhatsApp para tirar dúvidas e confirmar seu pedido.</p>
+      </div>
+
+      <div class="vantagem-card">
+        <h3>Catálogo fácil</h3>
+        <p>Escolha o time, veja os modelos e mande o link da camisa direto para o vendedor.</p>
+      </div>
+
+      <div class="vantagem-card">
+        <h3>Mais confiança</h3>
+        <p>Veja avaliações, confira o produto e finalize de forma simples e rápida.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao-modelo-personalizado" id="nao-achou-modelo">
+    <div class="secao-modelo-personalizado-texto">
+      <span class="tag-topo">Pedido sob consulta</span>
+      <h2>Não encontrou a camisa que queria?</h2>
+      <p>
+        Manda no WhatsApp o time, o ano, a versão e qualquer detalhe do modelo que você procura.
+        Assim fica mais fácil confirmar disponibilidade, valor e prazo do seu pedido.
+      </p>
+
+      <ul class="lista-pedido-modelo">
+        <li>Time ou seleção</li>
+        <li>Ano ou temporada</li>
+        <li>Versão Home, Away, Third ou Retrô</li>
+        <li>Tamanho e personalização, se quiser</li>
+      </ul>
+
+      <div class="cta-links">
+        <a
+          href="https://wa.me/5511942257565?text=Ol%C3%A1%21%20N%C3%A3o%20achei%20o%20modelo%20no%20site%20e%20queria%20pedir%20uma%20camisa%20sob%20consulta."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-link-principal"
+        >
+          Pedir modelo no WhatsApp
+        </a>
+
+        <a
+          href="https://www.instagram.com/genio_sports?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-link-secundario"
+        >
+          Ver Instagram da loja
+        </a>
+      </div>
+    </div>
+
+    <div class="secao-modelo-personalizado-cards">
+      <div class="pedido-card">
+        <strong>Pedido mais claro</strong>
+        <span>Você já manda as infos certas e agiliza o atendimento.</span>
+      </div>
+
+      <div class="pedido-card">
+        <strong>Modelos fora do catálogo</strong>
+        <span>Dá pra consultar camisas que ainda não estão publicadas no site.</span>
+      </div>
+
+      <div class="pedido-card">
+        <strong>Atendimento direto</strong>
+        <span>Você fala com a loja sem depender de formulário complicado.</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="rodape">
+    <div class="rodape-logo">
+      <img src="assets/logo-genio-sports.png" alt="Logo Gênio Sports" class="rodape-logo-img">
+      <span>Gênio Sports</span>
+    </div>
+    <div class="rodape-links"><a href="politica-de-privacidade.html">Política de Privacidade</a></div>
+    <p>Catálogo online com atendimento e fechamento de pedido pelo WhatsApp.</p>
+  </footer>
+
+  <div id="fundoCarrinho" class="fundo-carrinho" onclick="fecharCarrinho()"></div>
+
+  <aside id="carrinho" class="carrinho">
+    <div class="carrinho-topo">
+      <h2>Carrinho</h2>
+      <button class="btn-fechar-carrinho" type="button" onclick="fecharCarrinho()">✕</button>
+    </div>
+
+    <ul id="listaCarrinho"></ul>
+
+    <div class="carrinho-acoes">
+      <button type="button" onclick="comprarCarrinho()">Comprar no WhatsApp</button>
+      <button class="btn-secundario" type="button" onclick="fecharCarrinho()">Continuar vendo</button>
+    </div>
+  </aside>
+
+  <a
+    class="whatsapp-flutuante"
+    href="https://wa.me/5511942257565"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chamar no WhatsApp"
+  >
+    WhatsApp
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>

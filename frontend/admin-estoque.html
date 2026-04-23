@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel de Estoque - Gênio Sports</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-body">
+  <header class="topo-pagina admin-topo">
+    <div class="admin-topo-identidade">
+      <div class="admin-logo-linha">
+        <img src="assets/logo-genio-sports.png" alt="Logo Gênio Sports" class="admin-logo-img" />
+        <div>
+          <p class="admin-kicker">Painel interno</p>
+      <h1>Painel de estoque</h1>
+      <p>Gerencie produtos, times, imagens, estoque e usuários em um painel mais organizado.</p>
+        </div>
+      </div>
+    </div>
+    <div class="admin-topo-acoes">
+      <a href="/" class="botao-secundario">Voltar para a loja</a>
+      <button id="recarregarEstoque" class="botao-principal" type="button">Recarregar</button>
+    </div>
+  </header>
+
+  <main class="admin-container admin-layout">
+    <aside class="admin-side-panel">
+      <section class="admin-filtros-card admin-side-card">
+        <div class="admin-side-card-topo">
+          <p class="admin-card-tag">Busca rápida</p>
+          <h2>Filtrar catálogo</h2>
+        </div>
+
+        <div class="admin-filtros-grid admin-filtros-grid-compact">
+          <label>
+            <span>Buscar produto</span>
+            <input type="search" id="buscaAdmin" placeholder="Ex.: Barcelona, NBA, manga longa" />
+          </label>
+
+          <label>
+            <span>Time</span>
+            <select id="filtroTimeAdmin">
+              <option value="">Todos</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Categoria</span>
+            <select id="filtroCategoriaAdmin">
+              <option value="">Todas</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="admin-status-linha admin-status-box">
+          <p id="statusAdmin">Carregando produtos...</p>
+        </div>
+      </section>
+
+      <section class="admin-side-card admin-side-tip-card">
+        <p class="admin-card-tag">Organização</p>
+        <h3>Dicas rápidas</h3>
+        <ul class="admin-tip-list">
+          <li>Use <strong>Camisa de time</strong> para produtos que entram no carrossel da home.</li>
+          <li>O <strong>escudo</strong> do time agora é enviado apenas por arquivo.</li>
+          <li>A imagem do produto também é salva por upload, sem precisar colar URL.</li>
+        </ul>
+      </section>
+    </aside>
+
+    <div class="admin-main-panel">
+      <section class="admin-produto-card">
+        <div class="admin-card-header">
+          <div>
+            <p class="admin-card-tag">Gerenciar catálogo</p>
+            <h2 id="tituloFormularioProduto">Cadastrar novo produto</h2>
+            <p class="admin-card-desc">Crie, edite e remova produtos sem precisar mexer no código.</p>
+          </div>
+          <div class="admin-card-meta">
+            <span>ID atual</span>
+            <span id="adminProdutoIdLabel">Novo produto</span>
+          </div>
+        </div>
+
+        <form id="formAdminProduto" class="admin-produto-form">
+          <input type="hidden" id="adminTimeEscudo" />
+          <input type="hidden" id="adminProdutoImagem" />
+          <input type="hidden" id="adminProdutoTime" />
+          <input type="hidden" id="adminProdutoCategoria" />
+
+          <section class="admin-form-section">
+            <div class="admin-form-section-topo">
+              <div>
+                <p class="admin-card-tag">Bloco 1</p>
+                <h3>Informações principais</h3>
+              </div>
+              <p class="admin-section-helper">Preencha os dados básicos do produto antes de configurar estoque e imagens.</p>
+            </div>
+
+            <div class="admin-filtros-grid">
+              <label><span>Nome do produto</span><input type="text" id="adminProdutoNome" required /></label>
+
+              <label><span>Tipo de cadastro</span>
+                <select id="adminProdutoTipo">
+                  <option value="camisa">Camisa de time</option>
+                  <option value="categoria">Produto por categoria</option>
+                </select>
+              </label>
+
+              <label><span>Preço base</span><input type="number" id="adminProdutoPrecoBase" min="0" step="0.01" placeholder="199.90" /></label>
+              <label><span>Preço exibido</span><input type="text" id="adminProdutoPriceLabel" placeholder="Ex.: R$ 199,90" /></label>
+
+              <label class="campo-largo"><span>Descrição</span><textarea id="adminProdutoDescricao" rows="3" placeholder="Descreva o produto"></textarea></label>
+            </div>
+          </section>
+
+          <section class="admin-form-section">
+            <div class="admin-form-section-topo">
+              <div>
+                <p class="admin-card-tag">Bloco 2</p>
+                <h3>Time, categoria e exibição</h3>
+              </div>
+              <p class="admin-section-helper">Defina onde o produto vai aparecer no site.</p>
+            </div>
+
+            <div class="admin-filtros-grid">
+              <label id="adminCampoSecaoWrapper">
+                <span>Seção da home</span>
+                <select id="adminProdutoHomeSection"></select>
+              </label>
+
+              <label id="adminCampoNovaSecaoWrapper" style="display:none;">
+                <span>Nova seção</span>
+                <input type="text" id="adminProdutoNovaHomeSection" placeholder="Ex.: Times da América" />
+              </label>
+
+              <label id="adminCampoTimeWrapper">
+                <span>Time onde vai aparecer</span>
+                <select id="adminProdutoTimeSelect"></select>
+              </label>
+
+              <label id="adminCampoNovoTimeWrapper" style="display:none;">
+                <span>Novo time</span>
+                <input type="text" id="adminProdutoNovoTime" placeholder="Ex.: Barcelona" />
+              </label>
+
+              <label id="adminCampoCategoriaWrapper" style="display:none;">
+                <span>Categoria onde vai aparecer</span>
+                <select id="adminProdutoCategoriaSelect"></select>
+              </label>
+
+              <label id="adminCampoNovaCategoriaWrapper" style="display:none;">
+                <span>Nova categoria</span>
+                <input type="text" id="adminProdutoNovaCategoria" placeholder="Ex.: Manga longa" />
+              </label>
+            </div>
+          </section>
+
+          <section class="admin-form-section">
+            <div class="admin-form-section-topo">
+              <div>
+                <p class="admin-card-tag">Bloco 3</p>
+                <h3>Imagens</h3>
+              </div>
+              <p class="admin-section-helper">Envie a imagem principal do produto e, quando for camisa, o escudo do time.</p>
+            </div>
+
+            <div class="admin-media-grid">
+              <div class="admin-media-card">
+                <div class="admin-media-card-topo">
+                  <h4>Imagem do produto</h4>
+                  <p>Essa imagem aparece na listagem e na página do produto.</p>
+                </div>
+                <label class="campo-largo">
+                  <span>Selecionar arquivo</span>
+                  <input type="file" id="adminProdutoImagemArquivo" accept="image/*" />
+                  <small class="admin-helper-text">Ao salvar, o arquivo será enviado para a pasta do projeto e o produto vai guardar esse caminho automaticamente.</small>
+                </label>
+                <div class="admin-image-preview-wrap">
+                  <span class="admin-image-preview-title">Prévia da imagem</span>
+                  <div id="adminProdutoImagemPreview" class="admin-image-preview-box">
+                    <div class="admin-image-preview-placeholder">Sem imagem selecionada</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="admin-media-card" id="adminCampoEscudoArquivoWrapper">
+                <div class="admin-media-card-topo">
+                  <h4>Escudo do time</h4>
+                  <p>Usado no carrossel de times da home.</p>
+                </div>
+                <label class="campo-largo">
+                  <span>Selecionar escudo</span>
+                  <input type="file" id="adminTimeEscudoArquivo" accept="image/*" />
+                  <small class="admin-helper-text">O escudo é enviado somente por arquivo. A opção de URL foi removida.</small>
+                </label>
+                <div class="admin-image-preview-wrap" id="adminCampoEscudoPreviewWrapper">
+                  <span class="admin-image-preview-title">Prévia do escudo</span>
+                  <div id="adminTimeEscudoPreview" class="admin-image-preview-box admin-image-preview-box-crest">
+                    <div class="admin-image-preview-placeholder">Sem escudo selecionado</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="admin-form-section">
+            <div class="admin-form-section-topo">
+              <div>
+                <p class="admin-card-tag">Bloco 4</p>
+                <h3>Configurações do produto</h3>
+              </div>
+              <p class="admin-section-helper">Escolha como o produto será vendido e controlado no estoque.</p>
+            </div>
+
+            <input type="checkbox" id="adminProdutoCustomizacao" checked disabled hidden />
+            <input type="checkbox" id="adminProdutoConsulta" hidden />
+
+            <div class="admin-check-grid">
+              <label class="admin-check-item"><input type="checkbox" id="adminProdutoEstoquePorTipo" /> <span>Separar estoque por variação (Torcedor/Jogador/Manga Longa)</span></label>
+            </div>
+
+          </section>
+
+          <div class="admin-size-editor">
+            <div class="admin-size-editor-topo">
+              <h3>Tamanhos e estoque</h3>
+              <p class="admin-helper-text">Você pode salvar o produto mesmo deixando todas as quantidades em 0.</p>
+            </div>
+            <div id="listaTamanhosProdutoAdmin" class="admin-sizes-grid"></div>
+          </div>
+
+          <div class="admin-card-actions">
+            <p class="admin-card-feedback" id="feedbackProdutoAdmin"></p>
+            <div class="admin-botoes-formulario">
+              <button type="button" id="cancelarEdicaoProduto" class="botao-secundario">Cancelar edição</button>
+              <button type="submit" class="botao-principal" id="salvarProdutoAdmin">Salvar produto</button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section id="listaAdminEstoque" class="admin-lista"></section>
+
+      <section class="admin-usuarios-card">
+        <div class="admin-card-header">
+          <div>
+            <p class="admin-card-tag">Contas cadastradas</p>
+            <h2>Usuários do sistema</h2>
+            <p class="admin-card-desc">Veja todos os cadastros e redefina a senha de qualquer usuário.</p>
+          </div>
+          <div class="admin-topo-acoes">
+            <button id="recarregarUsuariosAdmin" class="botao-secundario" type="button">Recarregar usuários</button>
+          </div>
+        </div>
+
+        <div class="admin-status-linha">
+          <p id="statusUsuariosAdmin">Carregando usuários...</p>
+        </div>
+
+        <section id="listaAdminUsuarios" class="admin-usuarios-lista"></section>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
