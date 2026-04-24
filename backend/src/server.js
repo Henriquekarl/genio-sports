@@ -661,7 +661,7 @@ async function start() {
 
     console.log('Banco conectado com sucesso');
   } catch (error) {
-    console.error('Erro ao conectar no banco:', error.message);
+    console.error('Erro ao conectar no banco:', error);
   }
 
   app.listen(PORT, () => {
