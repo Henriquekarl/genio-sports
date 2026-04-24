@@ -10,8 +10,13 @@ app.use(cors());
 app.use(express.json({ limit: '1mb' }));
 
 app.get('/api/health', async (_req, res) => {
-  const info = await get('SELECT COUNT(*) AS totalProducts FROM products');
-  res.json({ ok: true, totalProducts: Number(info?.totalProducts || 0) });
+  try {
+    const info = await get('SELECT COUNT(*) AS totalProducts FROM products');
+    res.json({ ok: true, totalProducts: Number(info?.totalProducts || 0) });
+  } catch (err) {
+    console.error('Erro no health:', err);
+    res.status(500).json({ ok: false, error: err.message });
+  }
 });
 
 app.get('/api/products', async (req, res) => {
