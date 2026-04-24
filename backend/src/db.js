@@ -33,9 +33,13 @@ async function all(sql, params = []) {
 }
 
 async function initDb() {
-  // Testa conexão
-  await pool.execute('SELECT 1');
-  console.log('Banco conectado com sucesso');
+  try {
+    await pool.execute('SELECT 1');
+    console.log('Banco conectado com sucesso');
+  } catch (err) {
+    console.error('ERRO CONEXÃO MYSQL:', err);
+    throw err;
+  }
 }
 
 module.exports = { run, get, all, initDb };
