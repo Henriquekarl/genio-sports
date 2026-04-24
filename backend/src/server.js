@@ -644,10 +644,10 @@ app.get('/api/orders', async (_req, res) => {
   res.json(orders);
 });
 
-app.use('/', express.static(path.join(__dirname, '../../frontend')));
+app.use(express.static(path.join(__dirname, '../front-end')));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../frontend/index.html'));
+  res.sendFile(path.join(__dirname, '../front-end/index.html'));
 });
 
 async function start() {
