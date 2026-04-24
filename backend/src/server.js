@@ -1,4 +1,5 @@
 const express = require('express');
+const bcrypt = require('bcrypt');
 const cors = require('cors');
 const path = require('path');
 const { initDb, run, get, all } = require('./db');
@@ -643,6 +644,74 @@ app.get('/api/orders', async (_req, res) => {
 
   res.json(orders);
 });
+
+
+
+// 🔥 COLE AQUI 👇👇👇
+
+// ================= AUTH =================
+
+app.post('/api/register', async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+
+    if (!name || !email || !password) {
+      return res.status(400).json({ error: 'Preencha todos os campos' });
+    }
+
+    const existing = await get('SELECT id FROM users WHERE email = ?', [email]);
+    if (existing) {
+      return res.status(400).json({ error: 'Usuário já existe' });
+    }
+
+    const hash = await bcrypt.hash(password, 10);
+
+    await run(
+      'INSERT INTO users (name, email, password_hash) VALUES (?, ?, ?)',
+      [name, email, hash]
+    );
+
+    res.json({ ok: true });
+
+  } catch (err) {
+    console.error('Erro no register:', err);
+    res.status(500).json({ error: 'Erro no servidor' });
+  }
+});
+
+app.post('/api/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await get('SELECT * FROM users WHERE email = ?', [email]);
+
+    if (!user) {
+      return res.status(400).json({ error: 'Usuário não encontrado' });
+    }
+
+    const valid = await bcrypt.compare(password, user.password_hash);
+
+    if (!valid) {
+      return res.status(400).json({ error: 'Senha inválida' });
+    }
+
+    res.json({
+      ok: true,
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        role: user.role
+      }
+    });
+
+  } catch (err) {
+    console.error('Erro no login:', err);
+    res.status(500).json({ error: 'Erro no servidor' });
+  }
+});
+
+// 🔥 DEPOIS DISSO continua normal
 
 app.use(express.static(path.join(__dirname, '../frontend')));
 
