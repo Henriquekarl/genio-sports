@@ -715,7 +715,8 @@ app.post('/api/login', async (req, res) => {
 
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-app.get('/', (req, res) => {
+// ⚠️ IMPORTANTE: qualquer rota que NÃO seja API cai no frontend
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
