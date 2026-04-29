@@ -716,15 +716,6 @@ app.post('/api/login', async (req, res) => {
 
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-app.get('*', (req, res, next) => {
-  // 🔥 deixa arquivos reais passarem
-  if (req.path.includes('.')) {
-    return next();
-  }
-
-  res.sendFile(path.join(__dirname, '../frontend/index.html'));
-});
-
 async function start() {
   try {
     await initDb();
