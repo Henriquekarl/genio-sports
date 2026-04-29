@@ -716,6 +716,11 @@ app.post('/api/login', async (req, res) => {
 
 app.use(express.static(path.join(__dirname, '../frontend')));
 
+// 🔥 ADICIONA AQUI
+app.get('/admin-estoque.html', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/admin-estoque.html'));
+});
+
 // ⚠️ IMPORTANTE: qualquer rota que NÃO seja API cai no frontend
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/index.html'));
