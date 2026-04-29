@@ -728,8 +728,6 @@ app.get('/api/users', async (req, res) => {
   }
 });
 
-// 🔥 AGORA SIM vem o static
-app.use(express.static(path.join(__dirname, '../frontend')));
 
 // 🔥 DEPOIS DISSO continua normal
 
