@@ -712,6 +712,25 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
+// 🔥 ADICIONE AQUI 👇👇👇
+app.get('/api/users', async (req, res) => {
+  try {
+    const users = await all(`
+      SELECT id, name, email, role, created_at 
+      FROM users 
+      ORDER BY id DESC
+    `);
+
+    res.json(users);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Erro ao buscar usuários' });
+  }
+});
+
+// 🔥 AGORA SIM vem o static
+app.use(express.static(path.join(__dirname, '../frontend')));
+
 // 🔥 DEPOIS DISSO continua normal
 
 app.use(express.static(path.join(__dirname, '../frontend')));
