@@ -728,6 +728,35 @@ app.get('/api/users', async (req, res) => {
   }
 });
 
+app.patch('/api/users/:id/password', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { newPassword } = req.body;
+
+    if (!newPassword || newPassword.length < 6) {
+      return res.status(400).json({ error: 'Senha deve ter pelo menos 6 caracteres' });
+    }
+
+    const user = await get('SELECT id FROM users WHERE id = ?', [id]);
+
+    if (!user) {
+      return res.status(404).json({ error: 'Usuário não encontrado' });
+    }
+
+    const hash = await bcrypt.hash(newPassword, 10);
+
+    await run(
+      'UPDATE users SET password_hash = ? WHERE id = ?',
+      [hash, id]
+    );
+
+    res.json({ message: 'Senha atualizada com sucesso' });
+
+  } catch (err) {
+    console.error('Erro ao atualizar senha:', err);
+    res.status(500).json({ error: 'Erro no servidor' });
+  }
+});
 
 // 🔥 DEPOIS DISSO continua normal
 
