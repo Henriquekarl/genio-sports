@@ -2,7 +2,7 @@
 const numeroVendedor = "5511942257565";
 const PRECO_TABELA_PERSONALIZACAO = Object.freeze({ nome: 40, numero: 40, patch: 30, patrocinadores: 80 });
 const API_BASE = 'https://geniosports.com';
-const ADMIN_PAGE = "admin-estoque.html";
+const ADMIN_PAGE = "/admin-estoque.html";
 
 const AUTH_STORAGE_KEY = "genioSportsAuthToken";
 
