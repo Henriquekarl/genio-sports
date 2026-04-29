@@ -716,9 +716,6 @@ app.post('/api/login', async (req, res) => {
 
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-app.get('/teste.html', (req, res) => {
-  res.send('FUNCIONANDO');
-});
 
 async function start() {
   try {
