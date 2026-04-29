@@ -4697,10 +4697,10 @@ async function iniciarPainelAdminUsuarios() {
   async function carregarUsuarios() {
     try {
       atualizarStatus('Carregando usuários...');
-      const resposta = await apiFetch(`${API_BASE}/api/admin/users`);
+      const resposta = await apiFetch(`${API_BASE}/api/users`);
       const data = await resposta.json();
       if (!resposta.ok) throw new Error(data?.error || 'Não foi possível carregar os usuários.');
-      usuarios = Array.isArray(data?.users) ? data.users : [];
+      usuarios = Array.isArray(data) ? data : [];
       renderizarUsuarios();
     } catch (error) {
       console.error(error);
@@ -4734,7 +4734,7 @@ async function iniciarPainelAdminUsuarios() {
     feedback.textContent = 'Redefinindo senha...';
 
     try {
-      const resposta = await apiFetch(`${API_BASE}/api/admin/users/${encodeURIComponent(userId)}/password`, {
+      const resposta = await apiFetch(`${API_BASE}/api/users/${encodeURIComponent(userId)}/password`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ newPassword })
