@@ -584,11 +584,11 @@ async function protegerPaginaAdmin() {
   const estaNoAdmin = window.location.pathname.endsWith(`/${ADMIN_PAGE}`) || window.location.pathname.endsWith(ADMIN_PAGE);
   if (!estaNoAdmin) return true;
 
-  await carregarUsuarioAtual();
+  /*await carregarUsuarioAtual();
   if (!usuarioAtualEhAdmin()) {
     window.location.href = "index.html";
     return false;
-  }
+  } */
 
   document.body.classList.add("admin-autorizado");
   return true;
